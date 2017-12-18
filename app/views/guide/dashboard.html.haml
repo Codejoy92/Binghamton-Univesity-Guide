@@ -1,0 +1,52 @@
+!!!
+%html{:lang => "en"}
+  %body
+    #wrapper
+      / Sidebar
+      #sidebar-wrapper
+        %ul.sidebar-nav
+          %li.sidebar-brand
+            %a
+              Features
+          %li
+            //%a{:href => "#"} Courses
+            = link_to 'Courses', courses_path
+          %li
+            //%a{:href => "#"} Professors
+            = link_to 'Professors', professors_path
+
+          %li
+            %a{:href => "#"} Feature3
+          %li
+            %a{:href => "#"} Feature4
+          %li
+            %a{:href => "#"} Feature5
+          %li
+            %a{:href => "#"} Feature6
+          %li
+            %a{:href => "#"} Feature7
+      / /#sidebar-wrapper
+      / Page Content
+      #page-content-wrapper
+        .container-fluid
+          %h1 Binghamton University Guide Dashboard Help
+          %p Click on toggle menu to explore features
+          %p On left side you can see all features and on click of any particular feature respective page will open here.
+          
+          
+          %button#menu-toggle.btn.btn-secondary{:formaction => "#menu-toggle", :type => "submit"} Toggle Menu
+          %br
+        = link_to '<button type="button" class="btn">Back to Homepage</button>'.html_safe, guide_index_path
+        %br
+        = link_to '<button type="button" class="btn">List of Users</button>'.html_safe, users_path
+      / /#page-content-wrapper
+    / /#wrapper
+    / Bootstrap core JavaScript
+    %script{:src => "vendor/jquery/jquery.min.js"}
+    %script{:src => "vendor/bootstrap/js/bootstrap.bundle.min.js"}
+    / Menu Toggle Script
+    :javascript
+      $("#menu-toggle").click(function(e) {
+          e.preventDefault();
+          $("#wrapper").toggleClass("toggled");
+      });

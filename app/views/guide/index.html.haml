@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "/default.css", :rel => "stylesheet", :type => "text/css"}/
+    %title Binghamton University Guide
+  %body
+    .container
+      #header.span-24
+        %p.heading
+          Welcome to The
+          = succeed "inghamton" do
+            %b B
+          = succeed "niversity" do
+            %b U
+          = succeed "uide" do
+            %b G
+      .span-24
+        = yield
+      #footer.span-24
+      %fieldset
+        %legend
+          %h2 Log in
+        %h4 Username
+        %input{:name => "username", :type => "text"}
+        %h4 Password
+        %input{:name => "password", :type => "text"}
+        %br
+        %br
+        = link_to '<button type="button">Sign In</button>'.html_safe, guide_dashboard_path
+        %br
+        %p 
+          New User?
+          = link_to '<button type="button">Sign Up</button>'.html_safe, guide_register_path
+        %br
+      %br
+      %br
+      = link_to '<button type="button">Sign in as Guest</button>'.html_safe, guide_dashboard_path
